@@ -18,11 +18,10 @@ class DatabaseSeeder extends Seeder
     {
 
         Storage::disk('public');
+
+        // Storage::disk('public')->deleteDirectory('courses');
+        Storage::deleteDirectory('courses');
         Storage::makeDirectory('courses');
-        // Storage::deleteDirectory('courses');
-     
-  
-        // Storage::makeDirectory('courses');
         // \App\Models\User::factory(10)->create();
 
         $this->call(UserSeeder::class);

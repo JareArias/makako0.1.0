@@ -8,14 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     use HasFactory;
-      protected $fillable = [
-      
+    protected $fillable = [
+
         'url',
- 
+
     ];
-   
-    protected $guarded=['id'];
-    public function imageable(){
+
+    protected $guarded = ['id'];
+    public function imageable()
+    {
         return $this->morphTo();
     }
+    // public function imageableE()
+    // {
+    //     return $this->morphTo();
+    // }
 }

@@ -1,0 +1,21 @@
+.btn {
+    @apply px-4 py-2 rounded;
+}
+
+.btn-primary {
+    @apply bg-primary text-white;
+}
+
+.btn-primary:hover {
+    @apply bg-red-600;
+}
+
+.btn-primary:focus {
+    @apply outline-none;
+}
+
+@media (min-width: 640px) {
+    .btn {
+        @apply px-6;
+    }
+}
