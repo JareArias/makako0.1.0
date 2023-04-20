@@ -9,24 +9,29 @@
         :key="decanatura.id"
         class="mb-4"
       >
-        <Card>
-          <template #image>
-            <img :src="decanatura.image" alt="imagen de evento de la UNAMAD" />
-          </template>
-          <template #title> {{ decanatura.title }} </template>
-          <template #description>
-            {{ decanatura.description.substring(0, 120) + "..." }}
-          </template>
-          <template #email> {{ decanatura.email }} </template>
-        </Card>
+        <Link :href="route('front.allCourses')">
+          <Card>
+            <template #image>
+              <img
+                :src="decanatura.image"
+                alt="imagen de evento de la UNAMAD"
+              />
+            </template>
+            <template #title> {{ decanatura.title }} </template>
+            <template #description>
+              {{ decanatura.description.substring(0, 120) + "..." }}
+            </template>
+            <template #email> {{ decanatura.email }} </template>
+          </Card>
+        </Link>
       </section>
     </div>
-    <pre> {{ decanaturas }} </pre>
   </div>
 </template>
 
 <script setup>
 import Card from "../Card.vue";
+import { Link } from "@inertiajs/vue3";
 
 defineProps({
   decanaturas: {

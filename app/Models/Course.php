@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-    
+
     use HasFactory;
-    protected $guarded=['id','status'];
+    protected $guarded = ['id', 'status'];
     protected $withCount = ['students'];
-     protected $fillable = [
+    protected $fillable = [
         'name',
         'slug',
         'duration',
@@ -26,8 +26,8 @@ class Course extends Model
         'decanatura',
         'user'
     ];
-   
-    
+
+
     const BORRADOR = 1;
     const REVISION = 2;
     const PUBLICADO = 3;
@@ -41,38 +41,45 @@ class Course extends Model
     //     return "slug";
     // }
 
-     //relacion uno a muchos
-     public function asistencias(){
+    //relacion uno a muchos
+    public function asistencias()
+    {
         return $this->hasMany('App\Models\Asistencia');
-    }   
+    }
 
-    public function sections(){
+    public function sections()
+    {
         return $this->hasMany('App\Models\Section');
-        
     }
 
     //RElacion uno a muchos inversa
-    public function teacher(){
-        return $this->belongsTo('App\Models\User','user_id');
+    public function teacher()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id');
     }
-    public function event(){
+    public function event()
+    {
         return $this->belongsTo('App\Models\Event');
     }
-   
-    public function decanatura(){
+
+    public function decanatura()
+    {
         return $this->belongsTo('App\Models\Decanatura');
     }
     //Relacion muchos a muchos
-    public function students(){
+    public function students()
+    {
         return $this->belongsToMany('App\Models\User');
     }
 
     //relacion uno a uno polimorfica
 
-    public function image(){
-        return $this->morphOne('App\Models\Image','imageable');
+    public function image()
+    {
+        return $this->morphOne('App\Models\Image', 'imageable');
     }
-    public function lessons(){
+    public function lessons()
+    {
         return $this->hasManyThrough(Lesson::class, 'App\Models\Section');
     }
 
@@ -83,4 +90,3 @@ class Course extends Model
         return $this->hasOne('App\Models\Observation');
     }
 }
-

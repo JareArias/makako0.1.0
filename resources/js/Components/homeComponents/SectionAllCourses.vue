@@ -11,7 +11,9 @@
           Desarrolla tu carrera profesional o expande tu empresa mediante cursos
           diseñados para fortalecer tu confianza y ayudarte a crecer.
         </p>
-        <button class="btn btn-primary mb-8">Encuentra tu curso</button>
+        <Link :href="route('front.allCourses')">
+          <button class="btn btn-primary mb-8">Encuentra tu curso</button>
+        </Link>
       </div>
       <div class="basis-1/2">
         <img
@@ -34,6 +36,7 @@
 </template>
 
 <script setup >
+import { Link } from "@inertiajs/vue3";
 </script>
 
 <style scoped></style>

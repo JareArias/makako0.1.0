@@ -10,19 +10,21 @@
     </div>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
       <section v-for="event in events" :key="event.id" class="mb-4">
-        <Card>
-          <template #image>
-            <img
-              class="w-40 h-30"
-              :src="event.image"
-              alt="imagen de evento de la UNAMAD"
-            />
-          </template>
-          <template #title> {{ event.title }} </template>
-          <template #description>
-            {{ event.description.substring(0, 120) + "..." }}
-          </template>
-        </Card>
+        <Link :href="route('front.allCourses')">
+          <Card>
+            <template #image>
+              <img
+                class="w-40 h-30"
+                :src="event.image"
+                alt="imagen de evento de la UNAMAD"
+              />
+            </template>
+            <template #title> {{ event.title }} </template>
+            <template #description>
+              {{ event.description.substring(0, 120) + "..." }}
+            </template>
+          </Card>
+        </Link>
       </section>
     </div>
   </div>
@@ -30,6 +32,8 @@
 
 <script setup>
 import Card from "../Card.vue";
+
+import { Link } from "@inertiajs/vue3";
 
 defineProps({
   events: {

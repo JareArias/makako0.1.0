@@ -18,6 +18,34 @@
         <template v-if="$slots.email">
           <slot name="email" />
         </template>
+
+        <template v-else-if="$slots.course">
+          <div class="flex justify-between">
+            <div class="">
+              <v-icon name="gi-price-tag" class="text-yellow-400" scale="1" />
+              <span class="text-gray-600 text-sm mr-4"
+                >Precio:
+                <slot name="price" />
+              </span>
+              <v-icon
+                name="md-daterange-outlined"
+                class="text-yellow-400"
+                scale="1"
+              />
+              <span class="text-gray-600 text-sm mr-12"
+                >Inicio:
+                <slot name="fecha" />
+              </span>
+            </div>
+            <div class="">
+              <v-icon
+                name="ri-arrow-right-s-line"
+                class="hover:animate-bounce"
+                scale="1.5"
+              />
+            </div>
+          </div>
+        </template>
         <div v-else className=" flex justify-end">
           <v-icon
             name="ri-arrow-right-s-line"
